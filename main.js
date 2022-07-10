@@ -16,9 +16,12 @@ const thirtyTwo = 1024;
 const sixtyFour = 4096;
 
 
-
+//Place default grid size on load
 document.addEventListener('DOMContentLoaded', load());
 
+
+//For the grid control bar there are 4 zones. As the user drags the selector past certain points,
+// the grid amount increases or decreases.
 
 let newPosX = 0, newPosY = 0, startPosX = 0, startPosY = 0;
 // when the user clicks down on the element
@@ -78,6 +81,7 @@ function mouseMove(e) {
   }
 }
 
+//load the grids onto the page. Used on load and when grid selector is moved.
 function load(){
   while (screen.firstChild) {
     screen.removeChild(screen.firstChild);
