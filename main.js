@@ -1,3 +1,4 @@
+//Current grid state
 data = {
   sixteen: false,
   twenty: true,
@@ -5,6 +6,7 @@ data = {
   sixtyFour: false
 }
 
+//Screen and grid size
 const screen = document.getElementById('screen');
 const selector = document.getElementById('marker');
 let size = '5px';
@@ -12,6 +14,8 @@ const sixteen = 256;
 const twenty = 400;
 const thirtyTwo = 1024;
 const sixtyFour = 4096;
+
+
 
 document.addEventListener('DOMContentLoaded', load());
 
@@ -41,13 +45,43 @@ function mouseMove(e) {
   startPosX = e.clientX;
 
   // set the element's new position:
-  console.log(selector.offsetLeft - newPosX);
   if (selector.offsetLeft - newPosX > 15 && selector.offsetLeft - newPosX < 140 ){
-  selector.style.left = (selector.offsetLeft - newPosX) + "px";
+    if (selector.offsetLeft - newPosX <= 46.25){
+      data.sixteen = true;
+      data.twenty = false;
+      data.thirtyTwo = false;
+      data.sixtyFour = false;
+      load();
+    }
+    if (selector.offsetLeft - newPosX >= 46.26 && selector.offsetLeft - newPosX <= 77.5) {
+      data.sixteen = false;
+      data.twenty = true;
+      data.thirtyTwo = false;
+      data.sixtyFour = false;
+      load();
+    }
+    if (selector.offsetLeft - newPosX >= 77.6 && selector.offsetLeft - newPosX <= 108.75) {
+      data.sixteen = false;
+      data.twenty = false;
+      data.thirtyTwo = true;
+      data.sixtyFour = false;
+      load();
+    }
+    if (selector.offsetLeft - newPosX >= 108.76 && selector.offsetLeft - newPosX <= 140) {
+      data.sixteen = false;
+      data.twenty = false;
+      data.thirtyTwo = false;
+      data.sixtyFour = true;
+      load();
+    }
+    selector.style.left = (selector.offsetLeft - newPosX) + "px";
   }
 }
 
 function load(){
+  while (screen.firstChild) {
+    screen.removeChild(screen.firstChild);
+  }
   if(data.sixteen === true){
     for (let i = 0; i < sixteen; i++) {
       let block = document.createElement('div');
