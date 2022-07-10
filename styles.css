@@ -103,11 +103,21 @@ main{
 
 .screen{
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   width: 550px;
   height: 550px;
   border-radius: 0 25px 25px 0;
   background-color: rgba(0, 0, 0, 0.02);
+}
+
+.sticky{
+  position: absolute;
+  top:0;
+  left: 0;
+  background-color: red;
+  width: 400px;
+  height: 400px;
 }
 
 .block{

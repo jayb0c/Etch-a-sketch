@@ -17,7 +17,7 @@ const sixtyFour = 4096;
 
 
 //Place default grid size on load
-document.addEventListener('DOMContentLoaded', load());
+document.addEventListener('DOMContentLoaded', load(), alert('Hey there! You can color by clicking and dragging. Regular clicks also work. The amount of grid squares can be set by using the grid slider bar.'));
 
 
 //For the grid control bar there are 4 zones. As the user drags the selector past certain points,
