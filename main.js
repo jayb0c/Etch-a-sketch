@@ -1,7 +1,7 @@
 //Current grid state
 data = {
-  sixteen: false,
-  twenty: true,
+  sixteen: true,
+  twenty: false,
   thirtyTwo: false,
   sixtyFour: false
 }
@@ -123,3 +123,46 @@ function load(){
     }
   }
 }
+
+//coloring the page
+let one = document.getElementById('button1');
+let two = document.getElementById('button2');
+let three = document.getElementById('button3');
+let four = document.getElementById('button4');
+let five = document.getElementById('button5');
+let six = document.getElementById('button6');
+let seven = document.getElementById('button7');
+let eight = document.getElementById('button8');
+let controls = document.getElementById('controls');
+let currentColor = '#000' ;
+
+controls.addEventListener('click', function(event){
+  if(event.target.className === 'button'){
+    if (event.target === one) { currentColor = '#000' };
+    if (event.target === two) { currentColor = '#4B5457' };
+    if (event.target === three) { currentColor = '#FF4749' };
+    if (event.target === four) { currentColor = '#52A5FF' };
+    if (event.target === five) { currentColor = '#F7C200' };
+    if (event.target === six) { currentColor = '#1EB85E' };
+    if (event.target === seven) { currentColor = 'white' };
+    if (event.target === eight) { currentColor = 'rgba(0, 0, 0, 0.02)' };
+  }
+  return currentColor;
+})
+
+var mouseIsDown = false
+screen.addEventListener('mousedown', function () { mouseIsDown = true })
+screen.addEventListener('mouseup', function () { mouseIsDown = false })
+
+screen.addEventListener('mouseover', function(event){
+  if(mouseIsDown === true){
+    if(event.target.className === 'block'){
+      event.target.style.backgroundColor = currentColor;
+    }
+  }
+})
+screen.addEventListener('click', function (event) {
+    if (event.target.className === 'block') {
+      event.target.style.backgroundColor = currentColor;
+    }
+})

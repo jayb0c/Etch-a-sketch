@@ -53,10 +53,6 @@ main{
   cursor: pointer;
 }
 
-.button:active{
-  cursor: grabbing;
-}
-
 .selector{
   display: flex;
   position: relative;
@@ -119,10 +115,6 @@ main{
   border: .15px solid RGBA(240,240,240,0.2);
   box-sizing: border-box;
   aspect-ratio: 1 / 1;
-}
-
-.block:hover{
-  background-color: aquamarine;
 }
 
 .row{
