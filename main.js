@@ -145,6 +145,16 @@ let five = document.getElementById('button5');
 let six = document.getElementById('button6');
 let seven = document.getElementById('button7');
 let eight = document.getElementById('button8');
+
+//Selection indicators
+let dot1 = document.getElementById('dot1');
+let dot2 = document.getElementById('dot2');
+let dot3 = document.getElementById('dot3');
+let dot4 = document.getElementById('dot4');
+let dot5 = document.getElementById('dot5');
+let dot6 = document.getElementById('dot6');
+let dot7 = document.getElementById('dot7');
+
 let controls = document.getElementById('controls');
 const rainbow = [
   "#f94144",
@@ -163,16 +173,101 @@ let currentColor = '#000' ;
 
 controls.addEventListener('click', function(event){
   if(event.target.className === 'button'){
-    if (event.target === one) { currentColor = '#000', data.rainbow = false; };
+    if (event.target === one) {
+      dot1.style.display = "flex";
+      dot2.style.display = "none";
+      dot3.style.display = "none";
+      dot4.style.display = "none";
+      dot5.style.display = "none";
+      dot6.style.display = "none";
+      dot7.style.display = "none";
+      eight.style.border = "none";
+      currentColor = '#000';
+      data.rainbow = false;
+     };
     if (event.target === two) {
+      dot1.style.display = "none";
+      dot2.style.display = "flex";
+      dot3.style.display = "none";
+      dot4.style.display = "none";
+      dot5.style.display = "none";
+      dot6.style.display = "none";
+      dot7.style.display = "none";
+      eight.style.border = "none";
       data.rainbow = true;
      };
-    if (event.target === three) { currentColor = '#FF4749', data.rainbow = false; };
-    if (event.target === four) { currentColor = '#52A5FF', data.rainbow = false; };
-    if (event.target === five) { currentColor = '#F7C200', data.rainbow = false; };
-    if (event.target === six) { currentColor = '#1EB85E', data.rainbow = false; };
-    if (event.target === seven) { currentColor = 'white', data.rainbow = false; };
-    if (event.target === eight) { currentColor = 'rgba(0, 0, 0, 0.02)', data.rainbow = false; };
+    if (event.target === three) {
+      dot1.style.display = "none";
+      dot2.style.display = "none";
+      dot3.style.display = "flex";
+      dot4.style.display = "none";
+      dot5.style.display = "none";
+      dot6.style.display = "none";
+      dot7.style.display = "none";
+      eight.style.border = "none";
+      currentColor = '#FF4749';
+      data.rainbow = false;
+     };
+    if (event.target === four) {
+      dot1.style.display = "none";
+      dot2.style.display = "none";
+      dot3.style.display = "none";
+      dot4.style.display = "flex";
+      dot5.style.display = "none";
+      dot6.style.display = "none";
+      dot7.style.display = "none";
+      eight.style.border = "none";
+      currentColor = '#52A5FF';
+      data.rainbow = false;
+     };
+    if (event.target === five) {
+      dot1.style.display = "none";
+      dot2.style.display = "none";
+      dot3.style.display = "none";
+      dot4.style.display = "none";
+      dot5.style.display = "flex";
+      dot6.style.display = "none";
+      dot7.style.display = "none";
+      eight.style.border = "none";
+      currentColor = '#F7C200';
+      data.rainbow = false;
+       };
+    if (event.target === six) {
+      dot1.style.display = "none";
+      dot2.style.display = "none";
+      dot3.style.display = "none";
+      dot4.style.display = "none";
+      dot5.style.display = "none";
+      dot6.style.display = "flex";
+      dot7.style.display = "none";
+      eight.style.border = "none";
+      currentColor = '#1EB85E';
+      data.rainbow = false;
+      };
+    if (event.target === seven) {
+      dot1.style.display = "none";
+      dot2.style.display = "none";
+      dot3.style.display = "none";
+      dot4.style.display = "none";
+      dot5.style.display = "none";
+      dot6.style.display = "none";
+      dot7.style.display = "flex";
+      eight.style.border = "none";
+      currentColor = 'white';
+      data.rainbow = false;
+      };
+    if (event.target === eight) {
+      dot1.style.display = "none";
+      dot2.style.display = "none";
+      dot3.style.display = "none";
+      dot4.style.display = "none";
+      dot5.style.display = "none";
+      dot6.style.display = "none";
+      dot7.style.display = "none";
+      eight.style.border = "3px solid orange";
+      currentColor = 'rgba(0, 0, 0, 0.02)';
+      data.rainbow = false;
+      };
   }
   return currentColor;
 })
