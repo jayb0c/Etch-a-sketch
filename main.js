@@ -3,7 +3,8 @@ data = {
   sixteen: true,
   twenty: false,
   thirtyTwo: false,
-  sixtyFour: false
+  sixtyFour: false,
+  rainbow: false
 }
 
 //Screen and grid size
@@ -145,18 +146,33 @@ let six = document.getElementById('button6');
 let seven = document.getElementById('button7');
 let eight = document.getElementById('button8');
 let controls = document.getElementById('controls');
+const rainbow = [
+  "#f94144",
+  "#f3722c",
+  "#f8961e",
+  "#f9844a",
+  "#f9c74f",
+  "#90be6d",
+  "#43aa8b",
+  "#4d908e",
+  "#577590",
+  "#277da1"
+];
+let i = 0;
 let currentColor = '#000' ;
 
 controls.addEventListener('click', function(event){
   if(event.target.className === 'button'){
-    if (event.target === one) { currentColor = '#000' };
-    if (event.target === two) { currentColor = '#4B5457' };
-    if (event.target === three) { currentColor = '#FF4749' };
-    if (event.target === four) { currentColor = '#52A5FF' };
-    if (event.target === five) { currentColor = '#F7C200' };
-    if (event.target === six) { currentColor = '#1EB85E' };
-    if (event.target === seven) { currentColor = 'white' };
-    if (event.target === eight) { currentColor = 'rgba(0, 0, 0, 0.02)' };
+    if (event.target === one) { currentColor = '#000', data.rainbow = false; };
+    if (event.target === two) {
+      data.rainbow = true;
+     };
+    if (event.target === three) { currentColor = '#FF4749', data.rainbow = false; };
+    if (event.target === four) { currentColor = '#52A5FF', data.rainbow = false; };
+    if (event.target === five) { currentColor = '#F7C200', data.rainbow = false; };
+    if (event.target === six) { currentColor = '#1EB85E', data.rainbow = false; };
+    if (event.target === seven) { currentColor = 'white', data.rainbow = false; };
+    if (event.target === eight) { currentColor = 'rgba(0, 0, 0, 0.02)', data.rainbow = false; };
   }
   return currentColor;
 })
@@ -168,12 +184,32 @@ screen.addEventListener('mouseup', function () { mouseIsDown = false })
 screen.addEventListener('mouseover', function(event){
   if(mouseIsDown === true){
     if(event.target.className === 'block'){
+      if(data.rainbow === true){
+        if(!rainbow[i]){
+          i = 0;
+          event.target.style.backgroundColor = rainbow[i];
+          return data;
+        }
+        event.target.style.backgroundColor = rainbow[i];
+        i++;
+        return data;
+      }
       event.target.style.backgroundColor = currentColor;
     }
   }
 })
 screen.addEventListener('click', function (event) {
-    if (event.target.className === 'block') {
-      event.target.style.backgroundColor = currentColor;
+  if (event.target.className === 'block') {
+    if (data.rainbow === true) {
+      if (!rainbow[i]) {
+        i = 0;
+        event.target.style.backgroundColor = rainbow[i];
+        return data;
+      }
+      event.target.style.backgroundColor = rainbow[i];
+      i++;
+      return data;
     }
+    event.target.style.backgroundColor = currentColor;
+  }
 })
