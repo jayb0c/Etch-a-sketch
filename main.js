@@ -9,6 +9,7 @@ data = {
 //Screen and grid size
 const screen = document.getElementById('screen');
 const selector = document.getElementById('marker');
+const reset = document.getElementById('reset');
 let size = '5px';
 const sixteen = 256;
 const twenty = 400;
@@ -17,8 +18,18 @@ const sixtyFour = 4096;
 
 
 //Place default grid size on load
-document.addEventListener('DOMContentLoaded', load(), alert('Hey there! You can color by clicking and dragging. Regular clicks also work. The amount of grid squares can be set by using the grid slider bar.'));
+document.addEventListener('DOMContentLoaded', load());
 
+reset.addEventListener('click', function(){
+  while (screen.firstChild) {
+    screen.removeChild(screen.firstChild);
+  }
+  data.sixteen = true;
+  data.twenty = false;
+  data.thirtyTwo = false;
+  data.sixtyFour = false;
+  load();
+})
 
 //For the grid control bar there are 4 zones. As the user drags the selector past certain points,
 // the grid amount increases or decreases.
